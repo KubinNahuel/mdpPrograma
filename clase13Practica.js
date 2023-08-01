@@ -76,3 +76,6 @@ examen(4000, () => console.log('Pregunta 1 respondida'))
   .then((res) => {
     return examen(3000, () => console.log('Pregunta 3 respondida'));
   });
+
+
+  
