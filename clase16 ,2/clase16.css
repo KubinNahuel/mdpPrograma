@@ -1,0 +1,9 @@
+.objetos{
+    background-color: rgb(14, 231, 123);
+    padding: 20px;
+    margin: 10px;
+}
+
+.objetos:nth-of-type(even){
+background-color: aqua;
+}
