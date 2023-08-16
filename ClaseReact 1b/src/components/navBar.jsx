@@ -23,7 +23,6 @@ export function Footer(){
     }
     return(
         <>
-       
         <NavBar persona={persona}/>
         <button onClick={alerta}>Enviar</button>
         <input onChange={(e)=> cambiar(e.target.value)}></input>
