@@ -1,6 +1,8 @@
 import React, { useReducer, useRef } from 'react'
 
+
 export default function Reducer() {
+    
     const [tasks,dispatch]= useReducer((state=[],initialState)=>{
         switch(initialState.type){
             case 'agregar_tarea':{
@@ -17,6 +19,7 @@ export default function Reducer() {
             }
         }
     })
+
 const inputRef= useRef();
     const handleSubmit=(event)=>{
         event.preventDefault();

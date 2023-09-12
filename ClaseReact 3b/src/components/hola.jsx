@@ -3,10 +3,10 @@ import { Link, useParams } from "react-router-dom"
 import { MyContext } from "../context/contexto";
 
 function Hola({numero,sumar}){
-    const {id,name}= useParams();
-    console.log(name)
+
     const {estadoContext} = useContext(MyContext)
     console.log(estadoContext)
+    
     return(
         <>
         <h1>{numero}</h1>

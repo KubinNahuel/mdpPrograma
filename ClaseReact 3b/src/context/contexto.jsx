@@ -4,7 +4,7 @@ export const MyContext= React.createContext();
 
 
 export function DataProvider({children}){
-const [estadoContext,setEstadoContext]= useState(1)
+const [estadoContext,setEstadoContext]= useState(100)
 
     return(
 <MyContext.Provider value={{estadoContext}}>
