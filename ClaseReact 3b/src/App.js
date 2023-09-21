@@ -9,6 +9,7 @@ import { DataProvider } from './context/contexto';
 import Reducer from './components/Reducer';
 import Formulario from './components/Formulario';
 import Redux from './components/Redux';
+import Fetch from './components/Fetch';
 
 
 function App() {
@@ -20,16 +21,15 @@ const cambiarEstado=()=>{
 
   return (
     <DataProvider>
-   <Consolear/>
-   
+    <Consolear/>
+    <div>a</div>
     <Routes>
       <Route path='/' element={<Consolear/>}></Route>
       <Route path='/form' element={<Formulario/>}></Route>
-
       <Route path='/index/:id/:name' element={<Hola numero={estado} sumar={cambiarEstado}/>}></Route>
       <Route path='/reducer' element={<Reducer/>}></Route>
       <Route path='/redux' element={<Redux/>}></Route>
-
+      <Route path='/fetch' element={<Fetch/>}></Route>
     </Routes>
     </DataProvider>
   );
