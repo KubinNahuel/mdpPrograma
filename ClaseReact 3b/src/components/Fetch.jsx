@@ -10,6 +10,16 @@ const [inputs,setInputs]= useState({
   password:'',
   email:''
 })
+const [users, setUsers]= useState([{}])
+
+useEffect(()=>{
+  fetch('http://localhost:3030/user').then((res)=>{
+    return res.json()
+  }).then((data)=>{
+    console.log(data.data)
+    setUsers(data.data)
+  })
+},[])
 
 const llamada = async()=>{
   fetch(url).then((response)=>{
@@ -29,6 +39,7 @@ const handleChange =(e)=>{
 }
 
 const handleSubmit=(event)=>{
+ 
   event.preventDefault()
   fetch('http://localhost:3030/user/createUser',{
     method: 'POST',
@@ -56,6 +67,16 @@ const handleSubmit=(event)=>{
       <input type="password" onChange={(e)=>{handleChange(e)}} name='password'/>
       <button type='submit'>Enviar</button>
     </form>
+
+    {users && users.map((elem, index)=>{
+      return(
+        <div className='userCard' key={index}>
+          <img src={elem.Image} />
+          <h1>{elem.name}</h1>
+          <h1>{elem.email}</h1>
+        </div>
+      )
+    })}
     </div>
   )
 }

@@ -6,7 +6,7 @@ const {middleware}= require('../middlewares/middlewares')
 const uploadMulter = require('../config/multer/multer.config')
 
 router.get('/',middleware ,getUser)
-router.get('/getUser/:id', getUserById )
+router.get('/getUser/:id',middleware ,getUserById )
 router.post('/login', login)
 router.post('/createUser',[uploadMulter.single("image")],createUser)
 router.put('/editUser/:id', editUser)

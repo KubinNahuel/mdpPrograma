@@ -1,7 +1,7 @@
 const middleware = async(req,res,next)=>{
-    let numero=3
+    let numero=2
 if(numero!=3){
-    next(new Error("error numero es distinto"))
+    next(new Error(407))
 }else{
     next()
 }

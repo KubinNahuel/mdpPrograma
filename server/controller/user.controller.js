@@ -1,7 +1,21 @@
 const {User} = require('../models/user.model.js')
+const {Post}= require('../models/post.model.js')
+
+
 const bcrypt = require('bcryptjs')
+const { Movies } = require('../models/movies.model.js')
 const getUser = async(req,res)=>{
-    const response=await User.findAll().then((data)=>{
+    const response=await User.findAll({
+        include:[
+            {
+            model: Post,
+            as:'post'
+        },
+        {
+            model: Movies
+        }
+    ]
+    }).then((data)=>{
     const res={error:false,data:data}
     return res
 }).catch((e)=>{
@@ -13,10 +27,19 @@ res.json(response)
 
 const getUserById= async (req,res)=>{
     try{
-        const response = await User.findAll({
+        const response = await User.findOne({
             where:{
             id:req.params.id
+        },
+        include:[//incluimos las tablas que contengan una llave foranea identificatoria de usuario
+            {
+            model: Post,
+            as:'post'
+        },
+        {
+            model: Movies
         }
+    ]
     }).then((data)=>{
             const res= {error: false, data: data ,message: "usuario encontrado"}
             return res

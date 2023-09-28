@@ -1,6 +1,10 @@
 const {Sequelize, DataTypes} = require('sequelize');
 const Joi = require('joi')
 const sequelize = require('../config/database/dbsequelize')
+const {Post} = require('./post.model.js')
+const {Movies} = require('./movies.model.js')
+
+
 
     const User= sequelize.define('User',{
         id:{
@@ -44,9 +48,33 @@ const sequelize = require('../config/database/dbsequelize')
         role:{
             type:DataTypes.INTEGER
         }
-
     })
+//relaciones
+//one to many
+User.hasMany(Post,{
+    foreignKey: 'userId',
+    as: 'post'
+})
 
+Post.belongsTo(User,{
+    foreignKey:'userId',
+    as: 'user'
+})
+
+//many-to-many
+User.belongsToMany(Movies,{
+    through: 'userMovies'
+})
+Movies.belongsToMany(User,{
+    through: 'userMovies'
+})
+//nuevas funciones del many to many
+// User.addMovies()
+// Movies.addUser()
+//setUser o setMovies
+
+
+//validaciones Joi
     const validateUser=()=>{
         const schema= Joi.object({
             name: Joi.string().min(2).max(100).required()
