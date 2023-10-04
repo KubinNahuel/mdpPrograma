@@ -55,7 +55,8 @@ const movie2= await Movies.create({
 // Movies.addUser()
 let user1= await User.create({
     name:'fernandez',
-    email: 'fernandez@gmail.com'
+    email: 'fernandez@gmail.com',
+    
 })
 
 let user2= await User.create({

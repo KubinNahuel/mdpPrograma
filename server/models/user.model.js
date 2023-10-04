@@ -3,7 +3,7 @@ const Joi = require('joi')
 const sequelize = require('../config/database/dbsequelize')
 const {Post} = require('./post.model.js')
 const {Movies} = require('./movies.model.js')
-
+const {validateRequest}= require('../middlewares/middlewares')
 
 
     const User= sequelize.define('User',{
@@ -75,7 +75,8 @@ Movies.belongsToMany(User,{
 
 
 //validaciones Joi
-    const validateUser=()=>{
+
+    const validateUser=(req,res,next)=>{
         const schema= Joi.object({
             name: Joi.string().min(2).max(100).required()
             .messages({

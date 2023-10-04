@@ -1,6 +1,7 @@
 import React from 'react'
 import CustomEmail from '../customEmail';
-
+import { CiAirportSign1, CiAlignCenterV } from "react-icons/ci";
+import { FiAlertOctagon } from "react-icons/fi";
 export default function Formulario() {
     const handleSubmit=(e)=>{
         e.preventDefault();
@@ -24,6 +25,12 @@ CustomEmail(correo,asunto,texto)
     <input type="text" name='texto'/>
     <button type='submit' >Enviar</button>
   </form>
+<div>
+  <CiAirportSign1/>
+  <CiAlignCenterV/>
+  <FiAlertOctagon/>
+</div>
+
 </div>
    </>
   )
