@@ -5,12 +5,12 @@ const {login, getUser, createUser, getUserById,editUser, deleteUser}= require('.
 const {middleware}= require('../middlewares/middlewares')
 const uploadMulter = require('../config/multer/multer.config')
 
-router.get('/',middleware,getUser)
-router.get('/getUser/:id',middleware ,getUserById )
+router.get('/', getUser)
+router.get('/getUser/:id',middleware, getUserById )
 router.post('/login', login)
 router.post('/createUser',[uploadMulter.single("image")],createUser)
 router.put('/editUser/:id', editUser)
-router.delete('/deleteUser/:id', deleteUser)
+router.delete('/deleteUser/:id/:email', deleteUser)
 
 
 module.exports = router

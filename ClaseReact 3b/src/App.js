@@ -10,6 +10,7 @@ import Reducer from './components/Reducer';
 import Formulario from './components/Formulario';
 import Redux from './components/Redux';
 import Fetch from './components/Fetch';
+import Login from './components/Login';
 
 
 function App() {
@@ -21,8 +22,7 @@ const cambiarEstado=()=>{
 
   return (
     <DataProvider>
-    <Consolear/>
-    <div>a</div>
+    
     <Routes>
       <Route path='/' element={<Consolear/>}></Route>
       <Route path='/form' element={<Formulario/>}></Route>
@@ -30,6 +30,8 @@ const cambiarEstado=()=>{
       <Route path='/reducer' element={<Reducer/>}></Route>
       <Route path='/redux' element={<Redux/>}></Route>
       <Route path='/fetch' element={<Fetch/>}></Route>
+      <Route path='/login' element={<Login/>}></Route>
+
     </Routes>
     </DataProvider>
   );

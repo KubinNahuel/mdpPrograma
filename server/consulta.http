@@ -1,0 +1,3 @@
+GET  http://localhost:3030/user
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiZmVybmFuZGV6MkBnbWFpbC5jb20iLCJpYXQiOjE2OTY0NjA5NzksImV4cCI6MTY5NjQ2MTI3OX0.PTAiUucekLsJdTZEu3P2KuZIvAEsnJeqbkSHu8FKMxI
+

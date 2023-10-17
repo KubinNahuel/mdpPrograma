@@ -1,5 +1,4 @@
 const express =require('express');
-
 const sequelize = require('./config/database/dbsequelize')
 const cors = require('cors')
 const server= express()
@@ -13,9 +12,7 @@ server.use(express.urlencoded({ extended: true }));
 server.use("/uploads", express.static("uploads"));
 server.use('/user', require('./routes/user.routes'))
 server.use('/post', require('./routes/post.routes'))
-
 server.use('/movies', require('./routes/movies.routes'))
-
 
 
 
@@ -26,7 +23,7 @@ server.get('/',function(req,res){
 })
 
 
-sequelize.sync({force: true}).then(()=>{
+sequelize.sync({force: false}).then(()=>{
     console.log("Nos conectamos a la base de datos");
 }).then(async(data)=>{
     //creamos datos ya establecidos

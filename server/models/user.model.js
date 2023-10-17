@@ -87,6 +87,7 @@ Movies.belongsToMany(User,{
             }),
             age: Joi.number().min(5).max(75).required()
         })
+        validateRequest(req,res,next,schema)
     }
 
 module.exports={User, validateUser}

@@ -1,9 +1,11 @@
 const {User} = require('../models/user.model.js')
 const {Post}= require('../models/post.model.js')
-const bcrypt = require('bcryptjs')
 const { Movies } = require('../models/movies.model.js')
+const bcrypt = require('bcryptjs')
 const jwt= require('jsonwebtoken')
 require('dotenv').config()
+
+
 const generateAccessToken=(user)=>{
     return jwt.sign({user: user},process.env.PASSWORDTOKEN,{expiresIn: '5m'})
     }
@@ -78,7 +80,7 @@ const editUser=async(req,res)=>{
 
 
 const createUser = async (req,res)=>{
-    try{
+try{
     let rol = 0;
     let urlImage;
     if (req.file == undefined) {
@@ -88,8 +90,8 @@ const createUser = async (req,res)=>{
       urlImage = url + "/uploads/" + req.file.filename;
       rol = 1;
     }
-    
-    const modelData={
+
+const modelData={
     name: req.body.name,
     lastName: req.body.lastName,
     age: req.body.age,
@@ -127,8 +129,8 @@ const login = async(req,res)=>{
                 email: req.body.email
             }
         }).then((user)=>{
-if(!user){
-    return res.status(401).send({message: "ERROR user not found"})
+    if(!user){
+        return res.status(401).send({message: "ERROR user not found"})
 }
 
 const validPassword= bcrypt.compareSync(
@@ -140,7 +142,7 @@ if(!validPassword){
     return res.status(401).send({message: "ERROR user not found 2"})
 }
 
-const accessToken = generateAccessToken(user.email)
+const accessToken = generateAccessToken(user)
 res.status(200).header('authorization',accessToken).json({
     message:'usuario validado',
     token: accessToken
