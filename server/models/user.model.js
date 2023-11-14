@@ -78,11 +78,11 @@ Movies.belongsToMany(User,{
 
     const validateUser=(req,res,next)=>{
         const schema= Joi.object({
-            name: Joi.string().min(2).max(100).required()
+            name: Joi.string().min(2).max(5).required()
             .messages({
                 'string.empty': "ingrese el nombre",
                 'string.min': "el nombre debe tener entre 2 y 100 caracteres",
-                'string.max': "el nombre debe tener entre 2 y 100 caracteres",
+                'string.max': "el nombre debe tener entre 2 y 100 caracteres personalizado",
                 'any.required':"ingrese el nombre"
             }),
             age: Joi.number().min(5).max(75).required()

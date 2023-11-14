@@ -9,7 +9,7 @@ router.get('/', getUser)
 router.get('/getUser/:id',middleware, getUserById )
 router.post('/login', login)
 router.post('/email/:email', sendEmail)
-router.post('/createUser',[uploadMulter.single("image")],createUser)
+router.post('/createUser',[uploadMulter.single("image"), validateUser],createUser)
 router.put('/editUser/:id', editUser)
 router.delete('/deleteUser/:id/:email', deleteUser)
 
